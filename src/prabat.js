@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //------------------------------------------------------------------
   const allAudios = document.getElementsByTagName('audio');
   const betweenTrials = document.getElementById('between-trials');
-  const betweenTrialsBackround = document.getElementById('between-trials-backround');
+  const betweenTrialsBackground = document.getElementById('between-trials-background');
   const button = document.getElementById('prabat-button');
   const speaker = document.getElementById('speaker');
   const headingFullscreen = document.getElementById('heading-fullscreen');
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
 
     // Prevent clicks on the img element with id="character"
-    if (event.target.id === 'character' || event.target.className === 'table') {
+    if (event.target.id === 'character' || event.target.classList.contains('row1')) {
       return;
     }
 
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //------------------------------------------------------------------
   const handleContinueClick = async (event) => {
     event.preventDefault();
-
+    
     if (devmode) {
       console.log('trialNr', trialNr);
       console.log(allAudios[trialNr]);
@@ -196,7 +196,6 @@ document.addEventListener('DOMContentLoaded', function () {
         'images/backgrounds/start_4.svg'
       ];
     
-      const displayTime = 2000; // 2000ms = 2 seconds
       let currentIndex = 0;
       const imgElement = document.getElementById('background');
     
@@ -227,8 +226,13 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    // hide last Trial, show background (empty pictures) instead
-    if (trialNr > 0) {
+    const currentTrial = document.getElementById(`trial${trialNr}`);
+
+    if (currentTrial && currentTrial.classList.contains('informativeness')) {
+      const audio1 = document.getElementById('audio1');
+      const audio2 = document.getElementById('audio2');
+      const audio3 = document.getElementById('audio3');
+      const audio4 = document.getElementById('audio4');
       headingTestsound.style.display = 'none';
       // pause audio (that might be playing if speaker item was clicked and prompt was repeated)
       allAudios[trialNr - 1].pause();
@@ -237,7 +241,91 @@ document.addEventListener('DOMContentLoaded', function () {
       lastTrial.style.display = 'none';
 
       betweenTrials.style.display = 'flex';
-      betweenTrialsBackround.style.opacity = 1;
+      betweenTrialsBackground.style.opacity = 1;
+      await pause(150);
+
+      // play audio of current trial
+      audio1.play();
+
+      await pause(0);
+
+      // save response time start point
+      t0 = new Date().getTime();
+
+      betweenTrials.style.display = 'none';
+
+
+      //document.body.style.backgroundImage = "url('images/backgrounds/background01.png')";
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "center";
+      const flexWrapper = document.getElementById('flex-wrapper');
+      flexWrapper.style.backgroundColor = 'transparent';
+      //betweenTrials.style.display = 'none';
+
+      const currentTrial = document.getElementById(`trial${trialNr}`);
+      currentTrial.style.display = 'block';
+      // Show the background element for 3000 ms, then hide it
+      const background1 = document.getElementById('background1');
+      const background2 = document.getElementById('background2');
+      const background3 = document.getElementById('background3');
+      const background4 = document.getElementById('background4');
+      
+      const row1 = document.getElementById('row1');
+      const row2 = document.getElementById('row2');
+
+      if (background1) {
+        background1.style.display = 'block';
+        row1.style.display = 'flex';
+        setTimeout(() => {
+          background1.style.display = 'none';
+          if (background2) {
+            background2.style.display = 'block';
+            audio2.play();
+            setTimeout(() => {
+              background2.style.display = 'none';
+              if (background3) {
+                background3.style.display = 'block';
+                audio3.play();
+                setTimeout(() => {
+                  background3.style.display = 'none';
+                  if (background4) {
+                    background4.style.display = 'block';
+                    audio4.play();
+                    row1.style.display = 'none';
+                    row2.style.display = 'flex';
+                  }
+                }, 7000);
+              }
+            }, 4000);
+          }
+        }, 4000);
+      }
+
+      const currentImages = Array.from(
+        currentTrial.getElementsByTagName('img'),
+      );
+
+      allAudios[trialNr].onended = () => {
+        currentImages.forEach((img) => {
+          img.addEventListener('click', handleResponseClick, {
+            capture: false,
+            once: false,
+          });
+        });
+      };
+    }
+
+    // hide last Trial, show background (empty pictures) instead
+    if (trialNr > 0 && currentTrial.classList.contains('informativeness1') == false) {
+      headingTestsound.style.display = 'none';
+      // pause audio (that might be playing if speaker item was clicked and prompt was repeated)
+      allAudios[trialNr - 1].pause();
+      allAudios[trialNr - 1].currentTime = 0;
+      const lastTrial = document.getElementById(`trial${trialNr - 1}`);
+      lastTrial.style.display = 'none';
+
+      betweenTrials.style.display = 'flex';
+      betweenTrialsBackground.style.opacity = 1;
       await pause(150);
 
       // play audio of current trial

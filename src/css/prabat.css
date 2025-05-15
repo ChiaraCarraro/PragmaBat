@@ -151,6 +151,10 @@ body {
   border: 0.3vw solid var(--ccp-minerva-green);
 }
 
+.row1:hover {
+  border: none !important;
+}
+
 #rowtables {
   display: flex;
   height: 15vh;
