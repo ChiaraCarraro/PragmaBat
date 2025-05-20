@@ -228,12 +228,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const currentTrial = document.getElementById(`trial${trialNr}`);
 
-    if (currentTrial && currentTrial.classList.contains('informativeness')) {
-      const audio1 = document.getElementById('audio1');
-      const audio2 = document.getElementById('audio2');
-      const audio3 = document.getElementById('audio3');
-      const audio4 = document.getElementById('audio4');
-      headingTestsound.style.display = 'none';
+    if (currentTrial.classList.contains('transitionSlide')) {
+       headingTestsound.style.display = 'none';
       // pause audio (that might be playing if speaker item was clicked and prompt was repeated)
       allAudios[trialNr - 1].pause();
       allAudios[trialNr - 1].currentTime = 0;
@@ -245,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function () {
       await pause(150);
 
       // play audio of current trial
-      audio1.play();
+      allAudios[trialNr].play();
 
       await pause(0);
 
@@ -264,59 +260,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const currentTrial = document.getElementById(`trial${trialNr}`);
       currentTrial.style.display = 'block';
-      // Show the background element for 3000 ms, then hide it
-      const background1 = document.getElementById('background1');
-      const background2 = document.getElementById('background2');
-      const background3 = document.getElementById('background3');
-      const background4 = document.getElementById('background4');
-      
-      const row1 = document.getElementById('row1');
-      const row2 = document.getElementById('row2');
 
-      if (background1) {
-        background1.style.display = 'block';
-        row1.style.display = 'flex';
-        setTimeout(() => {
-          background1.style.display = 'none';
-          if (background2) {
-            background2.style.display = 'block';
-            audio2.play();
-            setTimeout(() => {
-              background2.style.display = 'none';
-              if (background3) {
-                background3.style.display = 'block';
-                audio3.play();
-                setTimeout(() => {
-                  background3.style.display = 'none';
-                  if (background4) {
-                    background4.style.display = 'block';
-                    audio4.play();
-                    row1.style.display = 'none';
-                    row2.style.display = 'flex';
-                  }
-                }, 7000);
-              }
-            }, 4000);
-          }
-        }, 4000);
-      }
-
-      const currentImages = Array.from(
-        currentTrial.getElementsByTagName('img'),
-      );
+      allAudios[trialNr].play();
 
       allAudios[trialNr].onended = () => {
-        currentImages.forEach((img) => {
-          img.addEventListener('click', handleResponseClick, {
-            capture: false,
-            once: false,
-          });
-        });
+      handleContinueClick(new Event('click'));
       };
     }
 
     // hide last Trial, show background (empty pictures) instead
-    if (trialNr > 0 && currentTrial.classList.contains('informativeness1') == false) {
+    if (trialNr > 0 && currentTrial.classList.contains('transitionSlide') == false) {
       headingTestsound.style.display = 'none';
       // pause audio (that might be playing if speaker item was clicked and prompt was repeated)
       allAudios[trialNr - 1].pause();
@@ -380,6 +333,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // play audio of current trial
     allAudios[trialNr - 1].play();
+
+    if (currentTrial.classList.contains('informativeness')) {
+      audio4.pause();
+      audio4.currentTime = 0;
+      audio4.play();
+    }
   };
 
   //------------------------------------------------------------------
