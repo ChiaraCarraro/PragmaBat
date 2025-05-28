@@ -3,6 +3,7 @@ import * as mrec from '@ccp-eva/media-recorder';
 import * as DetectRTC from 'detectrtc';
 
 import { downloadData } from './js/downloadData.js';
+import { uploadData } from './js/uploadData.js';
 import { pause } from './js/pause.js';
 // import { hideURLparams } from './js/hideURLparams.js';
 import { openFullscreen } from './js/openFullscreen.js';
@@ -80,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
 
     // Prevent clicks on the img element with id="character"
-    if (event.target.id === 'character' || event.target.classList.contains('row1')) {
+    if (event.target.id === 'character' || event.target.id === 'transition') {
       return;
     }
 
@@ -89,7 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentTrial = document.getElementById(`trial${trialNr - 1}`);
     const currentImages = Array.from(currentTrial.getElementsByTagName('img'));
     currentImages.forEach((img) => {
+      if (img.id !== 'character' && img.id !== 'background') {
       img.style.border = '0.3vw solid transparent';
+      }
     });
 
     event.target.style.border = '0.3vw solid blue';
@@ -163,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // end of trials
     if (trialNr === trialDivs.length) {
       downloadData(responseLog.data, responseLog.meta.subjID);
+      uploadData(responseLog.data, responseLog.meta.subjID);
 
       // save the video locally
       if (!responseLog.meta.iOSSafari && responseLog.meta.webcam) {
@@ -228,48 +232,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const currentTrial = document.getElementById(`trial${trialNr}`);
 
+    // transition images for trials that need multiple slides
+
     if (currentTrial.classList.contains('transitionSlide')) {
-       headingTestsound.style.display = 'none';
-      // pause audio (that might be playing if speaker item was clicked and prompt was repeated)
-      allAudios[trialNr - 1].pause();
-      allAudios[trialNr - 1].currentTime = 0;
-      const lastTrial = document.getElementById(`trial${trialNr - 1}`);
-      lastTrial.style.display = 'none';
-
-      betweenTrials.style.display = 'flex';
-      betweenTrialsBackground.style.opacity = 1;
-      await pause(150);
-
-      // play audio of current trial
-      allAudios[trialNr].play();
-
-      await pause(0);
-
-      // save response time start point
-      t0 = new Date().getTime();
-
-      betweenTrials.style.display = 'none';
-
-
-      //document.body.style.backgroundImage = "url('images/backgrounds/background01.png')";
-      document.body.style.backgroundSize = "cover";
-      document.body.style.backgroundPosition = "center";
-      const flexWrapper = document.getElementById('flex-wrapper');
-      flexWrapper.style.backgroundColor = 'transparent';
-      //betweenTrials.style.display = 'none';
-
       const currentTrial = document.getElementById(`trial${trialNr}`);
-      currentTrial.style.display = 'block';
-
-      allAudios[trialNr].play();
-
-      allAudios[trialNr].onended = () => {
-      handleContinueClick(new Event('click'));
-      };
-    }
-
-    // hide last Trial, show background (empty pictures) instead
-    if (trialNr > 0 && currentTrial.classList.contains('transitionSlide') == false) {
+      betweenTrialsBackground.src = "images/backgrounds/background_empty.svg";
       headingTestsound.style.display = 'none';
       // pause audio (that might be playing if speaker item was clicked and prompt was repeated)
       allAudios[trialNr - 1].pause();
@@ -279,18 +246,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
       betweenTrials.style.display = 'flex';
       betweenTrialsBackground.style.opacity = 1;
-      await pause(150);
+      //await pause(150);
 
-      // play audio of current trial
-      allAudios[trialNr].play();
+      if (currentTrial.classList.contains('silent') == false) {
+       // play audio of current trial
+        const trialAudio = currentTrial.querySelector('audio');
+        if (trialAudio) {
+          trialAudio.play();
+        }
+      }
 
-      await pause(0);
+      //await pause(0);
 
       // save response time start point
-      t0 = new Date().getTime();
+      //t0 = new Date().getTime();
 
       betweenTrials.style.display = 'none';
-
 
       //document.body.style.backgroundImage = "url('images/backgrounds/background01.png')";
       document.body.style.backgroundSize = "cover";
@@ -299,14 +270,65 @@ document.addEventListener('DOMContentLoaded', function () {
       flexWrapper.style.backgroundColor = 'transparent';
       //betweenTrials.style.display = 'none';
 
+      
+      currentTrial.style.display = 'block';
+
+      if (currentTrial.classList.contains('silent')) {
+        // Wait for the animation to end, then continue
+        currentTrial.addEventListener('animationend', async () => {
+          await pause(2000);
+          handleContinueClick(new Event('click'));
+        }, { once: true });
+      } else {
+        allAudios[trialNr].onended = async () => {
+          await pause(2000);
+          handleContinueClick(new Event('click'));
+        };
+      }
+    }
+
+    // hide last Trial, show background (empty pictures) instead
+    if (trialNr > 0 && currentTrial.classList.contains('transitionSlide') == false) {
       const currentTrial = document.getElementById(`trial${trialNr}`);
+      headingTestsound.style.display = 'none';
+      // pause audio (that might be playing if speaker item was clicked and prompt was repeated)
+      allAudios[trialNr - 1].pause();
+      allAudios[trialNr - 1].currentTime = 0;
+      const lastTrial = document.getElementById(`trial${trialNr - 1}`);
+      lastTrial.style.display = 'none';
+
+      betweenTrials.style.display = 'flex';
+      betweenTrialsBackground.style.opacity = 1;
+      //await pause(150);
+
+      // play audio of current trial
+      // Play the audio element contained in currentTrial
+      const trialAudio = currentTrial.querySelector('audio');
+      if (trialAudio) {
+        trialAudio.play();
+      }
+
+
+      // save response time start point
+      t0 = new Date().getTime();
+
+      betweenTrials.style.display = 'none';
+
+
+      //document.body.style.backgroundImage = "url('images/backgrounds/background01.png')";
+      //document.body.style.backgroundSize = "cover";
+      //document.body.style.backgroundPosition = "center";
+      const flexWrapper = document.getElementById('flex-wrapper');
+      flexWrapper.style.backgroundColor = 'transparent';
+      //betweenTrials.style.display = 'none';
+
       currentTrial.style.display = 'block';
 
       const currentImages = Array.from(
         currentTrial.getElementsByTagName('img'),
       );
 
-      allAudios[trialNr].onended = () => {
+      trialAudio.onended = () => {
         currentImages.forEach((img) => {
           img.addEventListener('click', handleResponseClick, {
             capture: false,
@@ -334,11 +356,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // play audio of current trial
     allAudios[trialNr - 1].play();
 
-    if (currentTrial.classList.contains('informativeness')) {
-      audio4.pause();
-      audio4.currentTime = 0;
-      audio4.play();
-    }
   };
 
   //------------------------------------------------------------------

@@ -82,20 +82,10 @@
           <div id="between-trials" class="flex-sheet">
             <img
               id="between-trials-background"
-              src="images/backgrounds/background_empty.svg"
-              style="height: 100vh;
-                width: 100vw;
-                margin: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                object-fit: cover;
-                opacity: 0;"
+              src="images/backgrounds/background_task.svg"
+              style="opacity: 0;"
               />
-          </div>
-
-          
+          </div>          
 
           <!-- dist1: semantic distractor, dist2: phonological, dist3: unrelated -->
           <div class="flex-sheet trials" style="display: none; height: 100%"> <!-- sistemare!!-->
@@ -114,6 +104,127 @@
                 />
           </div>
 
+          <!-- prova conversational perspective taking-->
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio src="audio/palvi1.mp3" muted></audio>
+            <img
+                id="background"
+                src="images/backgrounds/outside_empty.svg"
+                />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/objects/walking_girl.gif"
+              style="position: relative; z-index: 1; margin-top: 15vh"
+              />
+            </div>
+            <div class="row">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/boy_A.svg"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/boy_B_withDrawing.svg"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/boy_C_withCar.svg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio src="audio/neutral.mp3" muted></audio>
+            <img
+                id="background"
+                src="images/backgrounds/outside_empty.svg"
+                />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/objects/still_girl.svg"
+              style="position: relative; z-index: 1; margin-top: 15vh"
+              />
+            </div>
+            <div class="row">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/boy_A.svg"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/boy_B_withDrawing.svg"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/boy_C_withCar.svg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-sheet trials" style="display: none; height: 100%"> 
+            <audio src="audio/N_zm_auge.mp3" muted></audio>
+            <img
+                id="background"
+                src="images/backgrounds/outside_empty.svg"
+                />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/objects/standing_kid.svg"
+              style="position: relative; z-index: 1; margin-top: 15vh"
+              />
+            </div>
+            <div class="row">
+              <div id="object1">
+                <img
+                  class="object"
+                  data-word-category="dist2"
+                  src="images/objects/boy_A.svg"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object"
+                  data-word-category="dist3"
+                  src="images/objects/boy_B_withDrawing.svg"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object"
+                  data-word-category="dist1"
+                  src="images/objects/boy_C_withCar.svg"
+                />
+              </div>
+            </div>
+          </div>
+
+
+
           <!-- FAMILIARIZATION TRIALS -->
 
           <div class="flex-sheet trials mutex-noun" style="display: none; height: 100%"> 
@@ -121,14 +232,6 @@
             <img
                 id="background"
                 src="images/backgrounds/background_task.svg"
-                style="height: 100vh;
-                width: 100vw;
-                margin: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                object-fit: cover;"
                 />
             <div class="character" style="position: relative;">
               <img
@@ -166,6 +269,7 @@
           <!-- MUTEX-->
 
           <!-- AD-HOC IMPLICATURE-->
+          <!-- Blue ball -->
           <div class="flex-sheet trials adhocimp-ball" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
             <img
@@ -188,7 +292,7 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
@@ -212,6 +316,7 @@
               </div>
             </div>
           </div>
+          <!-- Apple vs. fruit vs. apple&banana -->
           <div class="flex-sheet trials adhocimp-fruit" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
             <img
@@ -234,69 +339,20 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
                   data-word-category="dist2"
-                  src="images/objects/basket_apple.svg"
-                  style="height: auto; width: 85%; margin-bottom: 50px;"
-                />
-              </div>
-              <div id="object2">
-                <img
-                  class="object"
-                  data-word-category="dist3"
                   src="images/objects/basket_fruit.svg"
                   style="height: auto; width: 85%; margin-bottom: 50px;"
                 />
               </div>
-              <div id="object3">
-                <img
-                  class="object"
-                  data-word-category="dist1"
-                  src="images/objects/basket_apple_banana.svg"
-                  style="height: auto; width: 85%; margin-bottom: 50px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="flex-sheet trials adhocimp-fruit2" style="display: none; height: 100%"> 
-            <audio src="audio/N_zm_auge.mp3"></audio>
-            <img
-                id="background"
-                src="images/backgrounds/background_task.svg"
-                style="height: 100vh;
-                width: 100vw;
-                margin: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                object-fit: cover;"
-                />
-            <div class="character" style="position: relative;">
-              <img
-              id="character"
-              class="upper-left"
-              src="images/agents/girl.svg"
-              style="opacity: 0; position: relative; z-index: 1;"
-              />
-            </div>
-            <div class="row">
-              <div id="object1">
-                <img
-                  class="object"
-                  data-word-category="dist2"
-                  src="images/objects/basket_ananas.svg"
-                  style="height: auto; width: 85%; margin-bottom: 50px;"
-                />
-              </div>
               <div id="object2">
                 <img
                   class="object"
                   data-word-category="dist3"
-                  src="images/objects/basket_cherries_apple_ananas.svg"
+                  src="images/objects/basket_apple_banana.svg"
                   style="height: auto; width: 85%; margin-bottom: 50px;"
                 />
               </div>
@@ -304,13 +360,14 @@
                 <img
                   class="object"
                   data-word-category="dist1"
-                  src="images/objects/basket_apple_cherries.svg"
+                  src="images/objects/basket_apple.svg"
                   style="height: auto; width: 85%; margin-bottom: 50px;"
                 />
               </div>
             </div>
           </div>
           <!-- SCALAR IMPLICATURE-->
+          <!-- Apple vs. Apples vs. FruitWithApple-->
           <div class="flex-sheet trials scalimp-diff" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
             <img
@@ -333,7 +390,7 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
@@ -361,6 +418,8 @@
             </div>
           </div>
 
+          <!-- A lot vs. A few-->
+
           <div class="flex-sheet trials scalimp-sing" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
             <img
@@ -383,7 +442,7 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
@@ -411,6 +470,8 @@
             </div>
           </div>
 
+          <!-- A lot vs. a few-->
+
           <div class="flex-sheet trials scalimp-afew" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
             <img
@@ -433,7 +494,7 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
@@ -462,15 +523,13 @@
           </div>
           
           <!-- INFORMATIVENESS-->
-
-
-          <!-- Transition Slide Informativeness 1-->
+          <!-- Transition Slide Infrtvnss 1-->
 
           <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
             <audio id="audio1" src="audio/neutral.mp3"></audio>
             <img
-              id="background5"
-              src="images/backgrounds/background_informativenessOne_neutral_right_JKL.svg"
+              id="background"
+              src="images/backgrounds/background_informativenessOne_neutral_left.svg"
               style="height: 100vh;
               width: 100vw;
               margin: 0;
@@ -480,15 +539,49 @@
               z-index: -1;
               object-fit: cover;"
             />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/bear_C.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/bear_B.svg"
+                  style="height: auto; width: 50%; opacity: 0;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/bear_ABC.svg"
+                  style="height: auto; width: 50%; opacity: 0;"
+                />
+              </div>
+            </div>
           </div>
 
-          <!-- Transition Slide Informativeness 1-->
+          <!-- Transition Slide Infrtvnss 1-->
 
           <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
             <audio id="audio1" src="audio/neutral.mp3"></audio>
             <img
-              id="background5"
-              src="images/backgrounds/background_informativenessOne_neutral_central_JKL.svg"
+              id="background"
+              src="images/backgrounds/background_informativenessOne_neutral_central.svg"
               style="height: 100vh;
               width: 100vw;
               margin: 0;
@@ -498,33 +591,49 @@
               z-index: -1;
               object-fit: cover;"
             />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/bear_C.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/bear_B.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/bear_ABC.svg"
+                  style="height: auto; width: 50%; opacity: 0;"
+                />
+              </div>
+            </div>
           </div>
 
-          <!-- Transition Slide Informativeness 1-->
+          <!-- Transition Slide Infrtvnss 1-->
 
           <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
             <audio id="audio1" src="audio/palvi1.mp3"></audio>
             <img
-              id="background5"
-              src="images/backgrounds/background_informativenessOne_happy_left_JKL.svg"
-              style="height: 100vh;
-              width: 100vw;
-              margin: 0;
-              position: absolute;
-              top: 0;
-              left: 0;
-              z-index: -1;
-              object-fit: cover;"
-            />
-          </div>
-
-          <!-- experimental trial Informativeness 1-->
-
-          <div class="flex-sheet trials" style="display: none; height: 100%"> 
-            <audio id="audio1" src="audio/palvi2.mp3"></audio>
-            <img
-              id="background5"
-              src="images/backgrounds/background_informativenessOne_JKL.svg"
+              id="background"
+              src="images/backgrounds/background_informativenessOne_happy_right.svg"
               style="height: 100vh;
               width: 100vw;
               margin: 0;
@@ -542,95 +651,41 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "rowTransition" class="row transition">
               <div id="object1">
                 <img
-                  class="object"
+                  class="object transition"
                   data-word-category="dist2"
-                  src="images/objects/novel_K.svg"
-                  style="height: auto; width: 40%; margin-top: 170px;"
+                  src="images/objects/bear_C.svg"
+                  style="height: auto; width: 50%;"
                 />
               </div>
               <div id="object2">
                 <img
-                  class="object"
+                  class="object transition"
                   data-word-category="dist3"
-                  src="images/objects/novel_J.svg"
-                  style="height: auto; width: 40%; margin-top: 170px;"
+                  src="images/objects/bear_B.svg"
+                  style="height: auto; width: 50%;"
                 />
               </div>
               <div id="object3">
                 <img
-                  class="object"
+                  class="object transition"
                   data-word-category="dist1"
-                  src="images/objects/novel_L.svg"
-                  style="height: auto; width: 40%; margin-top: 170px;"
+                  src="images/objects/bear_ABC.svg"
+                  style="height: auto; width: 50%;"
                 />
               </div>
             </div>
           </div>
 
-          <!-- Transition Slide Informativeness 2-->
-
-          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
-            <audio id="audio1" src="audio/neutral.mp3"></audio>
-            <img
-              id="background5"
-              src="images/backgrounds/background_informativenessOne_neutral_left_JKL.svg"
-              style="height: 100vh;
-              width: 100vw;
-              margin: 0;
-              position: absolute;
-              top: 0;
-              left: 0;
-              z-index: -1;
-              object-fit: cover;"
-            />
-          </div>
-
-          <!-- Transition Slide Informativeness 2-->
-
-          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
-            <audio id="audio1" src="audio/neutral.mp3"></audio>
-            <img
-              id="background5"
-              src="images/backgrounds/background_informativenessOne_neutral_central_JKL.svg"
-              style="height: 100vh;
-              width: 100vw;
-              margin: 0;
-              position: absolute;
-              top: 0;
-              left: 0;
-              z-index: -1;
-              object-fit: cover;"
-            />
-          </div>
-
-          <!-- Transition Slide Informativeness 2-->
-
-          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
-            <audio id="audio1" src="audio/neutral.mp3"></audio>
-            <img
-              id="background5"
-              src="images/backgrounds/background_informativenessOne_happy_right_JKL.svg"
-              style="height: 100vh;
-              width: 100vw;
-              margin: 0;
-              position: absolute;
-              top: 0;
-              left: 0;
-              z-index: -1;
-              object-fit: cover;"
-            />
-          </div>
-
-          <!-- experimental trial Informativeness 2-->
+          <!-- CRITICAL trial Infrtvnss 1-->
 
           <div class="flex-sheet trials" style="display: none; height: 100%"> 
             <audio id="audio1" src="audio/palvi2.mp3"></audio>
             <img
-              id="background5"
-              src="images/backgrounds/background_informativenessOne_JKL.svg"
+              id="background"
+              src="images/backgrounds/background_task.svg"
               style="height: 100vh;
               width: 100vw;
               margin: 0;
@@ -648,12 +703,222 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
                   data-word-category="dist2"
-                  src="images/objects/novel_K.svg"
+                  src="images/objects/novel_A.svg"
+                  style="height: auto; width: 80%; margin-top: 170px;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object"
+                  data-word-category="dist3"
+                  src="images/objects/novel_B.svg"
+                  style="height: auto; width: 80%; margin-top: 170px;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object"
+                  data-word-category="dist1"
+                  src="images/objects/novel_C.svg"
+                  style="height: auto; width: 80%; margin-top: 170px;"
+                />
+              </div>
+            </div>
+          </div>
+          
+          <!-- SECOND Informativeness trial-->
+
+          <!-- Transition Slide Infrtvnss 2-->
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_informativenessOne_neutral_right.svg"
+              style="height: 100vh;
+              width: 100vw;
+              margin: 0;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: -1;
+              object-fit: cover;"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/bear_DEF.svg"
+                  style="height: auto; width: 50%; opacity: 0;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/bear_EF.svg"
+                  style="height: auto; width: 50%; opacity: 0;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/bear_F.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Transition Slide Infrtvnss 2-->
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_informativenessOne_neutral_central.svg"
+              style="height: 100vh;
+              width: 100vw;
+              margin: 0;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: -1;
+              object-fit: cover;"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/bear_DEF.svg"
+                  style="height: auto; width: 50%; opacity: 0;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/bear_EF.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/bear_F.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Transition Slide Infrtvnss 2-->
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/palvi1.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_informativenessOne_happy_left.svg"
+              style="height: 100vh;
+              width: 100vw;
+              margin: 0;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: -1;
+              object-fit: cover;"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id="rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/bear_DEF.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/bear_EF.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/bear_F.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- CRITICAL trial Informativeness 2-->
+
+          <div class="flex-sheet trials" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/palvi2.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_task.svg"
+              style="height: 100vh;
+              width: 100vw;
+              margin: 0;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: -1;
+              object-fit: cover;"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "row" class="row">
+              <div id="object1">
+                <img
+                  class="object"
+                  data-word-category="dist2"
+                  src="images/objects/novel_F.svg"
                   style="height: auto; width: 40%; margin-top: 170px;"
                 />
               </div>
@@ -661,7 +926,7 @@
                 <img
                   class="object"
                   data-word-category="dist3"
-                  src="images/objects/novel_J.svg"
+                  src="images/objects/novel_E.svg"
                   style="height: auto; width: 40%; margin-top: 170px;"
                 />
               </div>
@@ -669,13 +934,14 @@
                 <img
                   class="object"
                   data-word-category="dist1"
-                  src="images/objects/novel_L.svg"
+                  src="images/objects/novel_D.svg"
                   style="height: auto; width: 40%; margin-top: 170px;"
                 />
               </div>
             </div>
           </div>
 
+          <!-- manca terzo trial difficile Infrtvnss-->
 
           <!-- TYPICALITY IMPLICATURE-->
 
@@ -701,7 +967,7 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
@@ -714,16 +980,16 @@
                 <img
                   class="object"
                   data-word-category="dist3"
-                  src="images/objects/weird_bottle.svg"
-                  style="height: auto; width: 40%; margin-bottom: 50px;"
+                  src="images/objects/feeding_bottle.svg"
+                  style="height: auto; width: 50%; margin-bottom: 50px;"
                 />
               </div>
               <div id="object3">
                 <img
                   class="object"
                   data-word-category="dist1"
-                  src="images/objects/feeding_bottle.svg"
-                  style="height: auto; width: 50%; margin-bottom: 50px;"
+                  src="images/objects/weird_bottle.svg"
+                  style="height: auto; width: 40%; margin-bottom: 50px;"
                 />
               </div>
             </div>
@@ -731,7 +997,7 @@
 
           <!-- DISCOURSE CONTINUITY  MULTIPLE TRIALS-->
 
-          <!-- Discourse continuity one-->
+          <!-- Discourse continuity first exposure trial-->
 
           <div class="flex-sheet trials disc-cont" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
@@ -755,7 +1021,7 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
@@ -783,7 +1049,7 @@
             </div>
           </div>
 
-          <!-- Discourse continuity two-->
+          <!-- Discourse continuity second exposure trial-->
 
           <div class="flex-sheet trials typic-imp" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
@@ -807,7 +1073,7 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
@@ -820,7 +1086,7 @@
                 <img
                   class="object"
                   data-word-category="dist3"
-                  src="images/objects/helicopter.svg"
+                  src="images/objects/lemon.svg"
                   style="height: auto; width: 40%; margin-bottom: 50px;"
                 />
               </div>
@@ -828,14 +1094,14 @@
                 <img
                   class="object"
                   data-word-category="dist1"
-                  src="images/objects/lemon.svg"
+                  src="images/objects/helicopter.svg"
                   style="height: auto; width: 50%; margin-bottom: 50px;"
                 />
               </div>
             </div>
           </div>
 
-          <!-- Discourse continuity three-->
+          <!-- Discourse continuity third exposure trials-->
 
           <div class="flex-sheet trials typic-imp" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
@@ -859,12 +1125,12 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
                   data-word-category="dist2"
-                  src="images/objects/car (1).svg"
+                  src="images/objects/car.svg"
                   style="height: auto; width: 50%; margin-bottom: 50px;"
                 />
               </div>
@@ -872,7 +1138,7 @@
                 <img
                   class="object"
                   data-word-category="dist3"
-                  src="images/objects/strawberry (1).svg"
+                  src="images/objects/strawberry.svg"
                   style="height: auto; width: 40%; margin-bottom: 50px;"
                 />
               </div>
@@ -887,7 +1153,7 @@
             </div>
           </div>
 
-          <!-- Discourse continuity four-->
+          <!-- Discourse continuity fourth exposure trial-->
 
           <div class="flex-sheet trials typic-imp" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
@@ -911,7 +1177,7 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
@@ -939,7 +1205,7 @@
             </div>
           </div>
 
-          <!-- Discourse continuity five-->
+          <!-- Discourse continuity fifth exposure trial-->
 
           <div class="flex-sheet trials typic-imp" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
@@ -963,7 +1229,7 @@
               style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
-            <div class="row">
+            <div id= "row" class="row">
               <div id="object1">
                 <img
                   class="object"
@@ -984,19 +1250,16 @@
                 <img
                   class="object"
                   data-word-category="dist1"
-                  src="images/objects/feeding_bottle.svg"
+                  src="images/objects/van.svg"
                   style="height: auto; width: 50%; margin-bottom: 50px;"
                 />
               </div>
             </div>
           </div>
 
+          <!-- Discourse continuity CRITICAL trial-->
 
-          <!-- DISCOURSE NOVELTY MULTIPLE-->
-          <!-- SPEAKER'S PREFERENCE MULTIPLE-->
-          <!-- METAPHORS-->
-
-          <div class="flex-sheet trials metaphors" style="display: none; height: 100%"> 
+          <div class="flex-sheet trials typic-imp" style="display: none; height: 100%"> 
             <audio src="audio/N_zm_auge.mp3"></audio>
             <img
                 id="background"
@@ -1009,6 +1272,641 @@
                 left: 0;
                 z-index: -1;
                 object-fit: cover;"
+                />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "row" class="row">
+              <div id="object1">
+                <img
+                  class="object"
+                  data-word-category="dist2"
+                  src="images/objects/pineapple.svg"
+                  style="height: auto; width: 50%; margin-bottom: 50px;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object"
+                  data-word-category="dist3"
+                  src="images/objects/snake.svg"
+                  style="height: auto; width: 40%; margin-bottom: 50px;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object"
+                  data-word-category="dist1"
+                  src="images/objects/tractor.svg"
+                  style="height: auto; width: 50%; margin-bottom: 50px;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- DISCOURSE NOVELTY MULTIPLE-->
+          <!-- first transition slide novel object-->
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_informativenessOne_neutral_left.svg"
+              style="height: 100vh;
+              width: 100vw;
+              margin: 0;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: -1;
+              object-fit: cover;"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/novel_G.svg"
+                  style="height: auto; width: 70%; opacity: 0;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/novel_H.svg"
+                  style="height: auto; width: 70%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/novel_I.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- second Transition Slide novel object-->
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_informativenessOne_neutral_central.svg"
+              style="height: 100vh;
+              width: 100vw;
+              margin: 0;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: -1;
+              object-fit: cover;"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div class="row">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/novel_G.svg"
+                  style="height: auto; width: 70%; opacity: 0;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/novel_H.svg"
+                  style="height: auto; width: 70%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/novel_I.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- third transition slide novel object-->
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_informativenessOne_neutral_right.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div class="row">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/novel_G.svg"
+                  style="height: auto; width: 70%; opacity: 0;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/novel_H.svg"
+                  style="height: auto; width: 70%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/novel_I.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- going away for a minute-->
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/palvi1.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_task.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div class="row">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/novel_G.svg"
+                  style="height: auto; width: 70%; opacity: 0;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/novel_H.svg"
+                  style="height: auto; width: 70%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/novel_I.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- silent transition slide -->
+          <div class="flex-sheet trials transitionSlide silent" style="display: none; height: 100%"> 
+            <img
+              id="background"
+              src="images/backgrounds/background_empty.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div class="row">
+              <div id="object1">
+                <img
+                  class="object transition slide-down"
+                  data-word-category="dist2"
+                  src="images/objects/novel_G.svg"
+                  style="height: auto; width: 70%; opacity: 0;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/novel_H.svg"
+                  style="height: auto; width: 70%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/novel_I.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- CRITICAL trial discourse novelty-->
+
+          <div class="flex-sheet trials" style="display: none; height: 100%">
+            <audio id="audio1" src="audio/palvi1.mp3"></audio> <!-- add: kannst du darauf drücken?-->
+            <img
+              id="background"
+              src="images/backgrounds/background_task.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div class="row">
+              <div id="object1">
+                <img
+                  class="object"
+                  data-word-category="dist2"
+                  src="images/objects/novel_G.svg"
+                  style="height: auto; width: 70%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object"
+                  data-word-category="dist3"
+                  src="images/objects/novel_H.svg"
+                  style="height: auto; width: 70%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object"
+                  data-word-category="dist1"
+                  src="images/objects/novel_I.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+<!-- SPEAKER'S PREFERENCE MULTIPLE-->
+          <!-- first transition slide-->
+          
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_informativenessOne_happy_left.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/novel_J.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/novel_K.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/novel_L.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- second Transition Slide novel object-->
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_informativenessOne_neutral_central.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/novel_J.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/novel_K.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/novel_L.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- third transition slide novel object-->
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_task_disgusted_right.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/novel_J.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/novel_K.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/novel_L.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- going away for a minute-->
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/palvi1.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_task.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/novel_J.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/novel_K.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/novel_L.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- girl is away-->
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3" muted></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_empty.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/novel_J.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/novel_K.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/novel_L.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- objects disappear-->
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3" muted></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_empty.svg"
+            />
+          </div>
+
+          <!-- objects reappear-->
+
+          <div class="flex-sheet trials transitionSlide silent" style="display: none; height: 100%"> 
+            <img
+              id="background"
+              src="images/backgrounds/background_empty.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div id= "rowTransition" class="row transition">
+              <div id="object1">
+                <img
+                  class="object transition slide-down"
+                  data-word-category="dist2"
+                  src="images/objects/novel_J.svg"
+                  style="height: auto; width: 50%; opacity: 0;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition slide-down"
+                  data-word-category="dist3"
+                  src="images/objects/novel_K.svg"
+                  style="height: auto; width: 50%; opacity: 0; animation-delay: 1s;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition slide-down"
+                  data-word-category="dist1"
+                  src="images/objects/novel_L.svg"
+                  style="height: auto; width: 50%; opacity: 0; animation-delay: 2s;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- CRITICAL trial speaker's preference-->
+
+          <div class="flex-sheet trials" style="display: none; height: 100%"> 
+            <audio src="audio/palvi2.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/background_task.svg"
+            />
+            <div class="character" style="position: relative;">
+              <img
+              id="character"
+              class="upper-left"
+              src="images/agents/girl.svg"
+              style="opacity: 0; position: relative; z-index: 1;"
+              />
+            </div>
+            <div class="row">
+              <div id="object1">
+                <img
+                  class="object"
+                  data-word-category="dist2"
+                  src="images/objects/novel_J.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object"
+                  data-word-category="dist3"
+                  src="images/objects/novel_K.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object"
+                  data-word-category="dist1"
+                  src="images/objects/novel_L.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+          
+          <!-- METAPHORS-->
+
+          <div class="flex-sheet trials metaphors" style="display: none; height: 100%"> 
+            <audio src="audio/N_zm_auge.mp3"></audio>
+            <img
+                id="background"
+                src="images/backgrounds/background_task.svg"
                 />
             <div class="character" style="position: relative;">
               <img
@@ -1032,7 +1930,7 @@
                   class="object"
                   data-word-category="dist3"
                   src="images/objects/brown_dog.svg"
-                  style="height: auto; width: 40%; margin-bottom: 50px;"
+                  style="height: auto; width: 50%; margin-bottom: 50px;"
                 />
               </div>
               <div id="object3">
@@ -1051,21 +1949,13 @@
             <img
                 id="background"
                 src="images/backgrounds/background_task.svg"
-                style="height: 100vh;
-                width: 100vw;
-                margin: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                object-fit: cover;"
-                />
+              />
             <div class="character" style="position: relative;">
               <img
-              id="character"
-              class="upper-left"
-              src="images/agents/girl.svg"
-              style="opacity: 0; position: relative; z-index: 1;"
+                id="character"
+                class="upper-left"
+                src="images/agents/girl.svg"
+                style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
             <div class="row">
@@ -1096,7 +1986,6 @@
             </div>
           </div>
 
-
           <!-- CONVERSATIONAL IMPLICATURE -->
 
           <div class="flex-sheet trials typic-imp" style="display: none; height: 100%"> 
@@ -1104,21 +1993,13 @@
             <img
                 id="background"
                 src="images/backgrounds/background_task.svg"
-                style="height: 100vh;
-                width: 100vw;
-                margin: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                object-fit: cover;"
                 />
             <div class="character" style="position: relative;">
               <img
-              id="character"
-              class="upper-left"
-              src="images/agents/girl.svg"
-              style="opacity: 0; position: relative; z-index: 1;"
+                id="character"
+                class="upper-left"
+                src="images/agents/girl.svg"
+                style="opacity: 0; position: relative; z-index: 1;"
               />
             </div>
             <div class="row">
@@ -1149,8 +2030,160 @@
             </div>
           </div>
 
+          <!-- Ella finally got muuuuch better-->
+
+          <div class="flex-sheet trials" style="display: none; height: 100%"> 
+            <audio src="audio/palvi2.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/ella_got_well.png"
+            />
+          </div>
+
           <!-- EMOTIONAL PROSODY MULTIPLE-->
+
+          <!-- prova emotional prosody -->
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3" muted></audio>
+            <img
+              id="background"
+              src="images/backgrounds/outside_left.svg"
+            />
+            <div id= "rowTransition" class="row transition prosodyItem">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/choco_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/lemon_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/strawberry_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3"></audio>
+            <img
+              id="background"
+              src="images/backgrounds/outside_central.svg"
+            />
+            <div id= "rowTransition" class="row transition prosodyItem">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/choco_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/lemon_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/strawberry_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-sheet trials transitionSlide" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3" muted></audio>
+            <img
+              id="background"
+              src="images/backgrounds/outside_right.svg"
+            />
+            <div id= "rowTransition" class="row transition prosodyItem">
+              <div id="object1">
+                <img
+                  class="object transition"
+                  data-word-category="dist2"
+                  src="images/objects/choco_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object transition"
+                  data-word-category="dist3"
+                  src="images/objects/lemon_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object transition"
+                  data-word-category="dist1"
+                  src="images/objects/strawberry_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-sheet trials" style="display: none; height: 100%"> 
+            <audio id="audio1" src="audio/neutral.mp3" muted></audio>
+            <img
+              id="background"
+              src="images/backgrounds/outside_front.svg"
+            />
+            <div class="row prosodyItem" style="height: 140%">
+              <div id="object1">
+                <img
+                  class="object"
+                  data-word-category="dist2"
+                  src="images/objects/choco_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object2">
+                <img
+                  class="object"
+                  data-word-category="dist3"
+                  src="images/objects/lemon_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+              <div id="object3">
+                <img
+                  class="object"
+                  data-word-category="dist1"
+                  src="images/objects/strawberry_icecream.svg"
+                  style="height: auto; width: 50%;"
+                />
+              </div>
+            </div>
+          </div>       
+
           <!-- CONVERSATIONAL PERSPECTIVE TAKING-->
+
+          
+
 
           <!-- end of main-flex-sheet -->
         </div>
