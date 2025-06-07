@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentImages = Array.from(currentTrial.getElementsByTagName('img'));
     currentImages.forEach((img) => {
       if (img.id !== 'character' && img.id !== 'background') {
-      img.style.border = '0.3vw solid transparent';
+      img.style.border = 'transparent';
       }
     });
 
@@ -191,6 +191,8 @@ document.addEventListener('DOMContentLoaded', function () {
       window.location.href = `./goodbye.html?ID=${responseLog.meta.subjID}`;
     }
 
+    // Story
+
     if (trialNr === 1) {
       const images = [
         'images/backgrounds/start_1_waving.svg',
@@ -202,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
       let currentIndex = 0;
       const imgElement = document.getElementById('background');
+      const ContinueStar = document.getElementById('continue-star');
     
       function showNextImage() {
         if (currentIndex <= images.length) {
@@ -218,6 +221,10 @@ document.addEventListener('DOMContentLoaded', function () {
           else if (images[currentIndex] === 'images/backgrounds/start_3.svg') {
             setTimeout(showNextImage, 9000);
           }
+          else if (images[currentIndex] === 'images/backgrounds/start_4.svg') {
+            ContinueStar.style.opacity = '1';
+          }
+
           currentIndex++;
         }
       }
@@ -235,7 +242,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // transition images for trials that need multiple slides
 
     if (currentTrial.classList.contains('transitionSlide')) {
-      const currentTrial = document.getElementById(`trial${trialNr}`);
       betweenTrialsBackground.src = "images/backgrounds/background_empty.svg";
       headingTestsound.style.display = 'none';
       // pause audio (that might be playing if speaker item was clicked and prompt was repeated)
@@ -248,9 +254,10 @@ document.addEventListener('DOMContentLoaded', function () {
       betweenTrialsBackground.style.opacity = 1;
       //await pause(150);
 
+      const trialAudio = currentTrial.querySelector('audio');
+
       if (currentTrial.classList.contains('silent') == false) {
        // play audio of current trial
-        const trialAudio = currentTrial.querySelector('audio');
         if (trialAudio) {
           trialAudio.play();
         }
@@ -280,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
           handleContinueClick(new Event('click'));
         }, { once: true });
       } else {
-        allAudios[trialNr].onended = async () => {
+          trialAudio.onended = async () => {
           await pause(2000);
           handleContinueClick(new Event('click'));
         };
