@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     responseLog.data[trialNr - 2] = {
       timestamp: new Date(parseInt(t1)).toISOString(),
       responseTime: t1 - t0,
-      trial: trialNr - 1,
+      trial: trialNr,
       // split('/').pop(): splits string at / and keeps only last element
       // then remove N_ and .jpg
       targetWord: allAudios[trialNr - 1].src
