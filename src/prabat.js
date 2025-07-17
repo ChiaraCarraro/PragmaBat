@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
       trial: trialNr,
       // split('/').pop(): splits string at / and keeps only last element
       // then remove N_ and .jpg
-      targetWord: allAudios[trialNr - 1].src
+      targetItem: allAudios[trialNr - 1].src
         .split('/')
         .pop()
         .replace('N_', '')
