@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 // FUNCTION FOR DOWNLOADING DATA LOCALLY; WITH BLOB
 // ---------------------------------------------------------------------------------------------------------------------
-export const uploadData = (safe, ID) => {
+export async function uploadData(safe, ID){
   safe.forEach((item) => {
     item.subjID = ID;
     item.correct = item.targetWord === item.chosenWord;
