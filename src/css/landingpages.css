@@ -7,22 +7,43 @@
 }
 
 body {
-    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background-color: var(--ccp-minerva-green);
     color: hsl(0 0% 10%);
-    overflow: hidden;
+    overflow: show;
 }
 
 .heading {
-    font-family: cholla-sans, sans-serif;
-    font-weight: 700;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 800;
+    font-size: 5em;
     letter-spacing: calc(20rem / 1000);
     color: var(--ccp-minerva-green);
     text-align: center;
 }
 
-#heading-2 {
-    font-size: larger;
+.heading-2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--ccp-minerva-green);
+}
+
+#webcam-question {
+    font-size: 1.60em;
+    font-weight: bold;
+    color: black;
+}
+
+#enterPseudo {
+    font-size: 1.75em;
+    font-weight: bold;
+    color: black;
+}
+
+.yes-noButtons {
+    font-size: 1.75em;
+    font-weight: 600;
+    color: black;
 }
 
 .heading-em {

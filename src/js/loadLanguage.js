@@ -12,8 +12,27 @@ export async function loadLanguage(langCode) {
 
 
     // Text content
-    //document.getElementById("fullscreen_1").innerText = translations.fullscreen_instructions_1;
-    //document.getElementById("fullscreen_2").innerText = translations.fullscreen_instructions_2;
+    const textElements = [
+      { id: "webcam-question", key: "webcamquestion" },
+      { id: "yes", key: "yes" },
+      { id: "no", key: "no" },
+      { id: "imageDisclaimer", key: "imageDisclaimer" },
+      { id: "start-button", key: "startButton" },
+      { id: "theGame", key: "theGame" },
+      { id: "descriptionGame", key: "descriptionGame" },
+      { id: "instructionsGame", key: "instructionsGame" },
+      { id: "continue", key: "continue" },
+      { id: "letsgo", key: "letsgo" },
+      { id: "heading-fullscreen", key: "headingfullscreen" },
+      { id:"enterPseudo", key: "enterPseudo" }
+    ];
+
+    textElements.forEach(({ id, key }) => {
+      const el = document.getElementById(id);
+      if (el && translations[key] !== undefined) {
+      el.innerText = translations[key];
+      }
+    });
     //document.getElementById("fullscreen_3").innerText = translations.fullscreen_instructions_3;
     //document.getElementById("fullscreen_4").innerText = translations.fullscreen_instructions_4;
 

@@ -1,4 +1,23 @@
 {
-  "greeting": "Hello",
-  "start_button": "Start Game"
+
+"webcamquestion": "Do you want to start the video recording?",
+"yes": "Yes",
+"no": "No",
+"imageDisclaimer": "The data will be saved as a .json file (and, if selected, the video as a .webm video file) on your device in the Downloads folder after completion of the study. A copy of the data will also be sent to our server for further analysis. \n\nGraphics and design elements on this website include resources from SVGRepo, Flaticon and Freepik, which are used under the free licence with attribution required. Some content may have been edited or adapted",
+"startButton": "START",
+"continue": "CONTINUE",
+"theGame": "The Game",
+"descriptionGame": "In the following game, you will always see a girl and three objects. For each picture, the girl asks the child to select one of the pictures by means of a sentence.",
+"instructionsGame": "You can play the voice again by clicking on the loudspeaker symbol. As soon as the child has selected a picture, click on 'CONTINUE' to proceed in the game. Now please click on 'NEXT' to go to the instructions.",
+"letsgo": "Let's go!",
+"headingfullscreen": "Take as much time as you like.\n\nIf your child becomes restless or bored, you can take a short break at any time. \n\n If your child asks you for advice or is unsure, please say 'Show me what you think'. Everything your child answers is great. Please do not help your child with the tasks - after all, we want to learn something about children! \n\nPlease click on 'CONTINUE' now to activate full screen mode at.",
+"enterPseudo": "Please enter a pseudonym here:",
+
+"introImages": [
+    "images/ger/backgrounds/start_1_waving.svg",
+    "images/ger/backgrounds/start_1.svg",
+    "images/ger/backgrounds/start_2.svg",
+    "images/ger/backgrounds/start_3.svg",
+    "images/ger/backgrounds/start_4.svg"
+  ]
 }

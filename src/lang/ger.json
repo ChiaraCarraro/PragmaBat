@@ -1,0 +1,23 @@
+{
+
+"webcamquestion": "Möchten Sie die Videoaufnahme starten?",
+"yes": "Ja",
+"no": "Nein",
+"imageDisclaimer": "Die Daten werden nach Abschluss der Studie als .json-Datei (und, falls ausgewählt, das Video als .webm-Videodatei) auf Ihrem Gerät im Ordner Downloads gespeichert. Eine Kopie der Daten wird außerdem zur weiteren Analyse an unseren Server gesendet. \n\nGrafiken und Designelemente auf dieser Website enthalten Ressourcen von SVGRepo, Flaticon und Freepik, die unter der freien Lizenz mit erforderlicher Namensnennung verwendet werden. Einige Inhalte können bearbeitet oder angepasst worden sein",
+"startButton": "START",
+"continue": "WEITER",
+"theGame": "Das Spiel",
+"descriptionGame": "Im folgenden Spiel sehen Sie immer ein Mädchen und drei Objekte. Für jedes Bild bittet das Mädchen das Kind, eines der Bilder durch einen Satz auszuwählen.",
+"instructionsGame": "Sie können die Stimme erneut abspielen, indem Sie auf das Lautsprechersymbol klicken. Sobald das Kind ein Bild ausgewählt hat, klicken Sie auf 'WEITER', um im Spiel fortzufahren. Bitte klicken Sie jetzt auf 'WEITER', um zu den Anweisungen zu gelangen.",
+"letsgo": "Los geht's!",
+"headingfullscreen": "Nehmen Sie sich so viel Zeit, wie Sie möchten. \n\nFalls Ihr Kind unruhig wird oder sich langweilt, können Sie jederzeit eine kurze Pause machen. \n\nWenn Ihr Kind Sie um Rat fragt oder sich unsicher ist, sagen Sie bitte 'Zeig, was Du denkst'. Alles, was Ihr Kind antwortet, ist prima. Bitte helfen Sie Ihrem Kind nicht bei den Aufgaben - wir wollen ja etwas über Kinder lernen! \n\n Bitte klicken Sie jetzt auf 'WEITER', um den Vollbildmodus zu aktivieren.",
+
+"introImages": [
+    "images/ger/backgrounds/start_1_waving.svg",
+    "images/ger/backgrounds/start_1.svg",
+    "images/ger/backgrounds/start_2.svg",
+    "images/ger/backgrounds/start_3.svg",
+    "images/ger/backgrounds/start_4.svg"
+  ]
+
+}

@@ -1,19 +1,21 @@
 {
-  "greeting": "Wîhîî",
-  "start_button": "Thome Mûciî",
 
-  "introImages": [
-    "images/backgrounds/start_1_kenya.svg",
-    "images/backgrounds/start_1_waving_kenya.svg",
-    "images/backgrounds/start_2_kenya.svg",
-    "images/backgrounds/start_3_kenya.svg",
-    "images/backgrounds/start_4_kenya.svg"
-   ],
+"webcamquestion": "No wende kwambĩrĩria gũthondeka video?",
+"yes": "Ĩĩ",
+"no": "Aca",
+"imageDisclaimer": "Thutha wa gũthondeka ũhoro ũcio, ũhoro ũcio nĩ ũigagwo thĩinĩ wa thimũ yaku ta .json (na, angĩkorũo nĩ ũthuurĩte, video ta .webm) thĩinĩ wa foldari ya maũndũ marĩa mekũrutwo. Gũtirĩ mbica ĩngĩ ĩigagwo handũ hangĩ.\n\nMĩhianano na indo cia gũthondeka thĩinĩ wa website ĩno nĩ hamwe na indo cia SVGRepo, Flaticon na Freepik, iria ihũthagĩrwo rungu rwa marũa ma ũtuĩria na kũheana marĩĩtwa. Maũndũ mamwe no makorũo macenjetio",
+"startButton": "KWAMBĨRĨRIA",
+"continue": "Gũthiĩ na mbere",
+"theGame": "Mũtambo",
+"descriptionsGame": "Gĩcunjĩ-inĩ kĩrĩa kĩrũmĩrĩire, hĩndĩ ciothe nĩ ũkoona mũirĩtu na indo ithatũ. Nĩ ũndũ wa mbica o ĩmwe, kairĩtu kau nĩ gatũmaga gakũũrie kamwana kau kahũthĩre ciugo gũthuura ĩmwe ya mbica icio",
+"instructionsGame": "No ũhihinye mũgambo rĩngĩ na njĩra ya kũhihinyanĩria kĩmenyithia kĩa thiomi. Mwana waku angĩthuura mbica ĩmwe, hũra 'CONTINUE' nĩguo ũthiĩ na mbere na mũbira ũcio. Rĩu hũra 'NEXT' nĩguo wone ũrĩa ũngĩka",
+"letsgo": "Rekei tũthiĩ!",
 
-
-  "images": {
-
-    "background": "images/backgrounds/background_task_Kenya.svg"
-
-  }
+"introImages": [
+    "images/ki/backgrounds/start_1_waving_kenya.svg",
+    "images/ki/backgrounds/start_1_kenya.svg",
+    "images/ki/backgrounds/start_2_Kenya.svg",
+    "images/ki/backgrounds/start_3_kenya.svg",
+    "images/ki/backgrounds/start_4_kenya.svg"
+  ]
 }

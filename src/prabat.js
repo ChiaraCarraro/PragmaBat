@@ -23,10 +23,18 @@ if (storedChoices) {
 }
 
 function applyLocalizedImagePaths(lang) {
+  let folder;
+  if (lang === "ki" || lang === "sw") {
+    folder = "ki";
+  } if (lang === "ger" || lang === "en" || lang === "tr") {
+    folder = "ger";
+  } else {
+    folder = lang;
+  }
   const allImgs = document.querySelectorAll("[data-img]");
   allImgs.forEach(img => {
     const relPath = img.getAttribute("data-img");
-    img.src = `images/${lang}/${relPath}`;
+    img.src = `images/${folder}/${relPath}`;
   });
 }
 
@@ -69,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       subjID: studyChoices.ID || "testID",
       order: window.location.pathname.split("/").pop().replace(".html", ""),
       touchscreen: checkForTouchscreen(),
-      webcam: studyChoices.webcam || false,
+      webcam: studyChoices.webcam === true,
     },
     data: [],
   };

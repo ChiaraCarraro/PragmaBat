@@ -1,12 +1,21 @@
 {
-  "fullscreen_instructions_1": "Chukua muda wako wote...",
-  "button_continue": "ENDELEA",
-  
-  "images": {
-    "girl_agent": "images/agents/girl_swahili.svg",
-    "background": "images/backgrounds/background_task_Kenya.svg",
-    "apple": "images/objects/apple_sw.svg",
-    "star": "images/objects/star_sw.svg",
-    "turtle": "images/objects/turtle_sw.svg"
-  }
+  "webcamquestion": "Je, ungependa kuanza kurekodi video?",
+  "yes": "Ndiyo",
+  "no": "Hapana",
+  "imageDisclaimer": "Baada ya kumaliza utafiti, data itahifadhiwa kwenye kifaa chako kama faili ya .json (na, ikiwa imechaguliwa, video kama faili ya .webm) kwenye folda ya downloads. Hakuna nakala nyinginezo zilizohifadhiwa mahali pengine.\n\nPicha na vitu vya muundo kwenye tovuti hii vinajumuisha rasilimali za SVGRepo, Flaticon na Freepik, ambazo zinatumiwa chini ya leseni ya bure na utoaji wa jina muhimu. Baadhi ya habari huenda ikawa imebadilishwa au kurekebishwa.",
+  "startButton": "KUANZA",
+  "continue": "ENDELEA",
+  "theGame": "Mchezo",
+  "descriptionGame": "Katika mchezo ufuatao, utaona msichana na vitu vitatu kila wakati. Kwa kila picha, msichana anauliza mtoto achague moja ya picha hizo kwa njia ya sentensi.",
+  "instructionsGame": "Unaweza kurudia kusikiliza sauti kwa kubofya alama ya spika. Mara mtoto anapochagua picha, bofya 'ENDELEA' ili kuendelea na mchezo. Tafadhali bofya 'NEXT' sasa ili kwenda kwenye maelekezo.",
+  "letsgo": "Hebu twende!",
+
+  "introImages": [
+    "images/ki/backgrounds/start_1_waving_kenya.svg",
+    "images/ki/backgrounds/start_1_kenya.svg",
+    "images/ki/backgrounds/start_2_kenya.svg",
+    "images/ki/backgrounds/start_3_kenya.svg",
+    "images/ki/backgrounds/start_4_kenya.svg"
+  ]
+
 }
