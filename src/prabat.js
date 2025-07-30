@@ -11,6 +11,8 @@ import { pause } from "./js/pause.js";
 import { openFullscreen } from "./js/openFullscreen.js";
 import { checkForTouchscreen } from "./js/checkForTouchscreen.js";
 // import { randomizeNewTrials } from './js/randomizeNewTrials.js';
+import { loadLanguage } from "./js/loadLanguage.js";
+
 
 const storedChoices = localStorage.getItem("storedChoices");
 let studyChoices;
@@ -20,7 +22,32 @@ if (storedChoices) {
   console.error("No data found in local storage");
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+function applyLocalizedImagePaths(lang) {
+  const allImgs = document.querySelectorAll("[data-img]");
+  allImgs.forEach(img => {
+    const relPath = img.getAttribute("data-img");
+    img.src = `images/${lang}/${relPath}`;
+  });
+}
+
+function applyLocalizedAudioPaths(lang) {
+  const allAudios = document.querySelectorAll("[data-audio]");
+  allAudios.forEach(audio => {
+    const relPath = audio.getAttribute("data-audio");
+    audio.src = `audios/${lang}/${relPath}`;
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", async function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const lang = urlParams.get("lang") || "en"; // fallback to English
+  await loadLanguage(lang);
+  
+  applyLocalizedImagePaths(lang); 
+  applyLocalizedAudioPaths(lang);  
+
+
   const devmode = false;
 
   //------------------------------------------------------------------
@@ -201,45 +228,37 @@ document.addEventListener("DOMContentLoaded", function () {
     // Story
 
     if (trialNr === 1) {
-      const images = [
+      const images = window.localizedIntroImages || [
         "images/backgrounds/start_1_waving.svg",
         "images/backgrounds/start_1.svg",
         "images/backgrounds/start_2.svg",
         "images/backgrounds/start_3.svg",
-        "images/backgrounds/start_4.svg",
+        "images/backgrounds/start_4.svg"
       ];
+
 
       let currentIndex = 0;
       const imgElement = document.getElementById("background");
       const ContinueStar = document.getElementById("continue-star");
 
       function showNextImage() {
-        if (currentIndex <= images.length) {
-          imgElement.src = images[currentIndex];
-          if (
-            images[currentIndex] === "images/backgrounds/start_1_waving.svg"
-          ) {
-            setTimeout(showNextImage, 3000);
-          } else if (
-            images[currentIndex] === "images/backgrounds/start_1.svg"
-          ) {
-            setTimeout(showNextImage, 2500);
-          } else if (
-            images[currentIndex] === "images/backgrounds/start_2.svg"
-          ) {
-            setTimeout(showNextImage, 6000);
-          } else if (
-            images[currentIndex] === "images/backgrounds/start_3.svg"
-          ) {
-            setTimeout(showNextImage, 9000);
-          } else if (
-            images[currentIndex] === "images/backgrounds/start_4.svg"
-          ) {
-            ContinueStar.style.opacity = "1";
-          }
+        const currentImage = images[currentIndex];
 
-          currentIndex++;
+        imgElement.src = currentImage;
+
+        if (currentImage.includes("start_1_waving")) {
+          setTimeout(showNextImage, 3000);
+        } else if (currentImage.includes("start_1")) {
+          setTimeout(showNextImage, 2500);
+        } else if (currentImage.includes("start_2")) {
+          setTimeout(showNextImage, 6000);
+        } else if (currentImage.includes("start_3")) {
+          setTimeout(showNextImage, 9000);
+        } else if (currentImage.includes("start_4")) {
+          ContinueStar.style.opacity = "1";
         }
+        currentIndex++;
+
       }
 
       showNextImage(); // Start the slideshow
@@ -315,6 +334,11 @@ document.addEventListener("DOMContentLoaded", function () {
       trialNr > 0 &&
       currentTrial.classList.contains("transitionSlide") == false
     ) {
+      const imgEl = document.getElementById("background");
+      if (imgEl && window.localizedImages?.background) {
+        imgEl.src = window.localizedImages.background;
+      }
+
       const currentTrial = document.getElementById(`trial${trialNr}`);
       headingTestsound.style.display = "none";
       // pause audio (that might be playing if speaker item was clicked and prompt was repeated)

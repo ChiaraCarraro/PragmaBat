@@ -1,0 +1,19 @@
+{
+  "greeting": "Wîhîî",
+  "start_button": "Thome Mûciî",
+
+  "introImages": [
+    "images/backgrounds/start_1_kenya.svg",
+    "images/backgrounds/start_1_waving_kenya.svg",
+    "images/backgrounds/start_2_kenya.svg",
+    "images/backgrounds/start_3_kenya.svg",
+    "images/backgrounds/start_4_kenya.svg"
+   ],
+
+
+  "images": {
+
+    "background": "images/backgrounds/background_task_Kenya.svg"
+
+  }
+}

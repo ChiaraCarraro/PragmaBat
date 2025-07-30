@@ -1,5 +1,16 @@
 import "./css/landingpages.css";
+import { loadLanguage } from "./js/loadLanguage.js"; // adjust path as needed
+
 const button = document.getElementById("instructions-button");
+
+// Get language from URL
+const params = new URLSearchParams(window.location.search);
+const lang = params.get("lang") || "en";
+
+// Load localized text/images
+(async () => {
+  await loadLanguage(lang);
+})();
 
 // Extract ID and webcam from stored choices
 const storedChoices = localStorage.getItem("storedChoices");
@@ -11,25 +22,14 @@ if (storedChoices) {
   console.error("No data found in local storage");
 }
 
-// get and stored subject ID and webcam choice
 studyChoices.ID = studyChoices?.ID ?? "testID";
 studyChoices.webcam = studyChoices?.webcam ?? false;
 
-// define what happens on button click
+// On continue, forward to prabat.html with language in URL
 const handleContinueClick = (event) => {
   event.preventDefault();
   localStorage.setItem("storedChoices", JSON.stringify(studyChoices));
-  window.location.href = `./prabat.html`;
+  window.location.href = `./prabat.html?lang=${lang}`;
 };
 
-const handleWebcamClick = (event) => {
-  event.preventDefault();
-};
-
-button.addEventListener("click", handleContinueClick, {
-  capture: false,
-});
-
-button.addEventListener("click", handleWebcamClick, {
-  capture: false,
-});
+button.addEventListener("click", handleContinueClick);

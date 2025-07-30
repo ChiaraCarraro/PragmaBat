@@ -1,0 +1,12 @@
+{
+  "fullscreen_instructions_1": "Chukua muda wako wote...",
+  "button_continue": "ENDELEA",
+  
+  "images": {
+    "girl_agent": "images/agents/girl_swahili.svg",
+    "background": "images/backgrounds/background_task_Kenya.svg",
+    "apple": "images/objects/apple_sw.svg",
+    "star": "images/objects/star_sw.svg",
+    "turtle": "images/objects/turtle_sw.svg"
+  }
+}

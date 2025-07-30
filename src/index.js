@@ -1,16 +1,16 @@
 import "./css/landingpages.css";
+
 const button = document.getElementById("start-button");
 let continueIDOK = false;
+let selectedLang = "en"; // fallback default
 
+// Detect subject ID from URL
 const subjID =
   new URL(document.location.href).searchParams.get("ID") || "testID";
 
-// FOR INPUT FORM
-
-// FOR WEBCAM RECORIDING
-// get both radio buttons
+// Webcam recording radio buttons
 const webcamOptions = document.getElementsByName("webcam-options");
-let webcam = "false"; // no as default
+let webcam = "false"; // default
 
 for (const option of webcamOptions) {
   option.onclick = () => {
@@ -20,17 +20,25 @@ for (const option of webcamOptions) {
   };
 }
 
-// FOR CONTINUE BUTTON
-// define what happens on button click
+// Language dropdown
+document.getElementById("language-select").addEventListener("change", (e) => {
+  selectedLang = e.target.value;
+});
+
+// Continue button click
 const handleContinueClick = (event) => {
   event.preventDefault();
+
+  // Store choices in localStorage
   const studyChoices = {
     ID: subjID,
     webcam: webcam,
   };
-
   localStorage.setItem("storedChoices", JSON.stringify(studyChoices));
-  window.location.href = `./instructions.html`;
+
+  // Redirect to instructions with selected language
+  window.location.href = `./instructions.html?lang=${selectedLang}`;
 };
 
 button.addEventListener("click", handleContinueClick);
+
