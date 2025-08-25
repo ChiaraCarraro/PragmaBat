@@ -22,6 +22,7 @@ const handleContinueClick = (event) => {
   // Store choices in localStorage
   const studyChoices = {
     ID: subjID,
+    lang: selectedLang
   };
   localStorage.setItem("storedChoices", JSON.stringify(studyChoices));
 

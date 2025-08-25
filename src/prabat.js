@@ -12,7 +12,8 @@ import { openFullscreen } from "./js/openFullscreen.js";
 import { checkForTouchscreen } from "./js/checkForTouchscreen.js";
 // import { randomizeNewTrials } from './js/randomizeNewTrials.js';
 import { loadLanguage } from "./js/loadLanguage.js";
-
+import { applyLocalizedAudioPaths } from "./js/applyLocalizedAudioPaths.js";
+import { applyLocalizedImagePaths } from "./js/applyLocalizedImagePaths.js";
 
 const storedChoices = localStorage.getItem("storedChoices");
 let studyChoices;
@@ -21,31 +22,6 @@ if (storedChoices) {
 } else {
   console.error("No data found in local storage");
 }
-
-function applyLocalizedImagePaths(lang) {
-  let folder;
-  if (lang === "ki" || lang === "sw") {
-    folder = "ki";
-  } if (lang === "ger" || lang === "en" || lang === "tr") {
-    folder = "ger";
-  } else {
-    folder = lang;
-  }
-  const allImgs = document.querySelectorAll("[data-img]");
-  allImgs.forEach(img => {
-    const relPath = img.getAttribute("data-img");
-    img.src = `images/${folder}/${relPath}`;
-  });
-}
-
-function applyLocalizedAudioPaths(lang) {
-  const allAudios = document.querySelectorAll("[data-audio]");
-  allAudios.forEach(audio => {
-    const relPath = audio.getAttribute("data-audio");
-    audio.src = `audios/${lang}/${relPath}`;
-  });
-}
-
 
 document.addEventListener("DOMContentLoaded", async function () {
   const urlParams = new URLSearchParams(window.location.search);
@@ -77,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       subjID: studyChoices.ID || "testID",
       order: window.location.pathname.split("/").pop().replace(".html", ""),
       touchscreen: checkForTouchscreen(),
-      webcam: studyChoices.webcam === true,
+      webcam: studyChoices.webcam,
     },
     data: [],
   };
@@ -436,7 +412,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     // ---------------------------------------------------------------------------------------------------------------------
     // FOR DEMO: Conditional Recording based on URL Params (only if not iOS Safari)
     // ---------------------------------------------------------------------------------------------------------------------
-    if (!responseLog.meta.iOSSafari && responseLog.meta.webcam) {
+    if (!responseLog.meta.iOSSafari && responseLog.meta.webcam === "true") {
       mrec.startRecorder({
         audio: true,
         video: {

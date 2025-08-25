@@ -9,6 +9,9 @@
   "descriptionGame": "Katika mchezo ufuatao, utaona msichana na vitu vitatu kila wakati. Kwa kila picha, msichana anauliza mtoto achague moja ya picha hizo kwa njia ya sentensi.",
   "instructionsGame": "Unaweza kurudia kusikiliza sauti kwa kubofya alama ya spika. Mara mtoto anapochagua picha, bofya 'ENDELEA' ili kuendelea na mchezo. Tafadhali bofya 'NEXT' sasa ili kwenda kwenye maelekezo.",
   "letsgo": "Hebu twende!",
+  "headingfullscreen": "Chukua muda mwingi kama unavyotaka.\n\nIkiwa mtoto wako atakuwa na wasiwasi au kuchoka, unaweza kuchukua mapumziko mafupi wakati wowote. \n\n Ikiwa mtoto wako atakuuliza ushauri au atakuwa na mashaka, tafadhali sema 'Nionyeshe unachofikiri'. Kila kitu ambacho mtoto wako atajibu ni kizuri. Tafadhali usimsaidie mtoto wako katika majukumu - hatimaye, tunataka kujifunza kitu kuhusu watoto! \n\nTafadhali bofya 'ENDELEA' sasa ili kuwezesha hali ya skrini nzima.",
+  "enterPseudo": "Tafadhali ingiza jina la utani hapa:",
+  "noiseQuestion": "Je, umesikia sauti fupi ya kunguruma? \n\nNdiyo! Ikiwa hujasikia, bofya alama ya spika ili kujaribu sauti yako. \n\n Bofya 'NEXT' sasa ili kuendelea.",
 
   "introImages": [
     "images/ki/backgrounds/start_1_waving_kenya.svg",

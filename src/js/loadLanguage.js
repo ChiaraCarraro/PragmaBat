@@ -1,3 +1,6 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// FUNCTION FOR LOADING LANGUAGE FILES
+// ---------------------------------------------------------------------------------------------------------------------
 export async function loadLanguage(langCode) {
   try {
     const res = await fetch(`./lang/${langCode}.json`);
@@ -24,7 +27,8 @@ export async function loadLanguage(langCode) {
       { id: "continue", key: "continue" },
       { id: "letsgo", key: "letsgo" },
       { id: "heading-fullscreen", key: "headingfullscreen" },
-      { id:"enterPseudo", key: "enterPseudo" }
+      { id: "enterPseudo", key: "enterPseudo" },
+      { id: "noiseQuestion", key: "noiseQuestion" }
     ];
 
     textElements.forEach(({ id, key }) => {
