@@ -117,6 +117,29 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     event.target.style.border = "0.3vw solid blue";
 
+    // Play the audio with id "response" if it exists
+    const responseAudio = currentTrial.querySelector('audio#response');
+    if (responseAudio) {
+      responseAudio.play();
+      const backgroundTalkingImg = currentTrial.querySelector("#background-talking");
+      if (backgroundTalkingImg) {
+        backgroundTalkingImg.style.display = "block";
+      }
+    }
+
+    responseAudio.onended = () => {
+        // Show the image with id "background"
+        const backgroundImg = currentTrial.querySelector("#background");
+        if (backgroundImg) {
+          backgroundImg.style.display = "block";
+        }
+        // Hide the image with id "background-talking"
+        const backgroundTalkingImg = currentTrial.querySelector("#background-talking");
+        if (backgroundTalkingImg) {
+          backgroundTalkingImg.style.display = "none";
+        }
+      };
+
     // save response
     // trial - 2 since array starts at zero (-1) and continue click already advanced trial count (-1)
     responseLog.data[trialNr - 2] = {
@@ -125,26 +148,17 @@ document.addEventListener("DOMContentLoaded", async function () {
       trial: trialNr,
       // split('/').pop(): splits string at / and keeps only last element
       // then remove N_ and .jpg
-      targetWord: allAudios[trialNr - 1].src
+      targetObject: allAudios[trialNr - 1].src
         .split("/")
         .pop()
-        .replace("N_", "")
-        .replace("V_", "")
-        .replace("zm_", "")
-        .replace(".mp3", ""),
-      chosenWord: event.target.src
+        .replace(".mp3", "")
+        .replace(".wav", ""),
+      chosenObject: event.target.src
         .split("/")
         .pop()
-        .replace("N_", "")
-        .replace("V_", "")
-        .replace(".jpeg", ""),
-      chosenCategory: event.target.dataset.wordCategory,
-      chosenPosition: event.target.classList[0],
-      wordClass: allAudios[trialNr - 1].src.split("/").pop().startsWith("N_")
-        ? "noun"
-        : allAudios[trialNr - 1].src.split("/").pop().startsWith("V_")
-        ? "verb"
-        : "unknown",
+        .replace('.svg', '')
+        .replace('.gif', ''),
+      chosenPosition: event.target.id,
     };
 
     button.addEventListener("click", handleContinueClick, {
@@ -270,7 +284,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       betweenTrialsBackground.style.opacity = 1;
       //await pause(150);
 
-      const trialAudio = currentTrial.querySelector("audio");
+      const trialAudio = currentTrial.querySelector("audio#prompt");
 
       if (currentTrial.classList.contains("silent") == false) {
         // play audio of current trial
@@ -361,10 +375,20 @@ document.addEventListener("DOMContentLoaded", async function () {
       );
 
       trialAudio.onended = () => {
+        // Show the image with id "background"
+        const backgroundImg = currentTrial.querySelector("#background");
+        if (backgroundImg) {
+          backgroundImg.style.display = "block";
+        }
+        // Hide the image with id "background-talking"
+        const backgroundTalkingImg = currentTrial.querySelector("#background-talking");
+        if (backgroundTalkingImg) {
+          backgroundTalkingImg.style.display = "none";
+        }
         currentImages.forEach((img) => {
           img.addEventListener("click", handleResponseClick, {
-            capture: false,
-            once: false,
+        capture: false,
+        once: false,
           });
         });
       };
